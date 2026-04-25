@@ -1,0 +1,98 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap'); */
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Purple palette */
+  --purple-950: #0D0618;
+  --purple-900: #160A27;
+  --purple-800: #1E0E38;
+  --purple-700: #2E1554;
+  --purple-600: #3D1A70;
+  --purple-500: #5B21B6;
+  --purple-400: #7C3AED;
+  --purple-300: #A855F7;
+  --purple-200: #C084FC;
+  --purple-100: #E9D5FF;
+  --purple-50:  #F5F3FF;
+
+  /* Accent */
+  --violet:     #8B5CF6;
+  --lavender:   #DDD6FE;
+  --white:      #FFFFFF;
+  --off-white:  #F8F7FF;
+  --black:      #080510;
+
+  /* Neutrals */
+  --gray-900:   #111018;
+  --gray-800:   #1C1A26;
+  --gray-700:   #2A2838;
+  --gray-600:   #3D3A52;
+  --gray-400:   #6E6A85;
+  --gray-200:   #B5B2C8;
+  --gray-100:   #E5E3F0;
+
+  /* Semantic — paleta CLARA (70% blanco / 20% morado / 10% negro) */
+  --bg-primary:    #FFFFFF;
+  --bg-surface:    #F5F3FF;
+  --bg-card:       #FFFFFF;
+  --text-primary:  #080510;
+  --text-muted:    #4B4866;
+  --text-hint:     #9590A8;
+  --accent:        #7C3AED;
+  --accent-strong: #5B21B6;
+  --border:        rgba(124, 58, 237, 0.12);
+  --border-hover:  rgba(124, 58, 237, 0.30);
+
+  /* WhatsApp */
+  --wa-green: #25D366;
+  --wa-dark:  #1A9E4A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--purple-50); }
+::-webkit-scrollbar-thumb { background: var(--purple-300); border-radius: 4px; }
+
+/* Global utility */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
