@@ -37,11 +37,11 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2.5 no-underline">
           {/* Reemplaza con tu imagen: <img src={logo} alt="Logo" className="h-9" /> */}
-          <div className="w-9 h-9 rounded-xl bg-purple-600 flex items-center justify-center text-white font-black text-sm"
+          <div className="w-9 h-9 rounded-xs bg-purple-600 flex items-center justify-center text-white font-black text-sm"
                style={{ fontFamily: 'Outfit, sans-serif' }}>
             CLC
           </div>
-          <span className="font-black text-gray-950 text-lg tracking-tight"
+          <span className="font-black text-white text-lg tracking-tight"
                 style={{ fontFamily: 'Outfit, sans-serif' }}>
             Cable <span className="text-purple-600">Lima Centro</span>
           </span>
