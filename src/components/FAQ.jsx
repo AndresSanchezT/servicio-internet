@@ -1,6 +1,8 @@
-/* FAQ.jsx — FibraMax · Tailwind · Paleta 70% blanco / 20% morado / 10% negro */
+/* FAQ.jsx — FibraMax · Tailwind · Paleta #03A6EB · Motion · Lucide */
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
@@ -29,56 +31,126 @@ const faqs = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={`border rounded-2xl overflow-hidden transition-all duration-200
-      ${open ? 'border-purple-300 bg-purple-50' : 'border-gray-100 bg-white hover:border-purple-200'}`}>
-
+    <motion.div
+      variants={itemVariants}
+      style={
+        open
+          ? { border: '1.5px solid #03A6EB', background: '#f0faff' }
+          : { border: '1.5px solid #e0f5fd', background: '#fff' }
+      }
+      className="rounded-2xl overflow-hidden"
+      whileHover={!open ? { borderColor: '#b3e8fa', boxShadow: '0 4px 16px #03A6EB10' } : {}}
+      transition={{ duration: 0.15 }}
+    >
       <button
         onClick={() => setOpen(!open)}
-        className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer transition-colors duration-150 bg-transparent
-          ${open ? 'text-purple-700' : 'text-gray-800 hover:text-purple-600'}`}
+        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer bg-transparent"
         style={{ fontFamily: 'Outfit, sans-serif' }}
       >
-        <span className="font-semibold text-[0.95rem]">{faq.q}</span>
-        <span className={`text-xs flex-shrink-0 transition-transform duration-250 ${open ? 'rotate-180 text-purple-500' : 'text-gray-400'}`}>
-          ▼
-        </span>
+        <div className="flex items-center gap-3">
+          <div
+            className="w-7 h-7 rounded-lg flex-shrink-0 flex items-center justify-center"
+            style={{ background: open ? '#03A6EB' : '#e0f5fd' }}
+          >
+            <HelpCircle size={14} color={open ? '#fff' : '#03A6EB'} strokeWidth={2.2} />
+          </div>
+          <span
+            className="font-semibold text-[0.95rem]"
+            style={{ color: open ? '#03A6EB' : '#0a2a35' }}
+          >
+            {faq.q}
+          </span>
+        </div>
+
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex-shrink-0"
+        >
+          <ChevronDown size={17} color={open ? '#03A6EB' : '#5bc8f0'} strokeWidth={2.5} />
+        </motion.div>
       </button>
 
-      <div className={`transition-all duration-300 overflow-hidden ${open ? 'max-h-48' : 'max-h-0'}`}>
-        <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed">{faq.a}</p>
-      </div>
-    </div>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="answer"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            style={{ overflow: 'hidden' }}
+          >
+            <p
+              className="px-5 pb-4 text-sm leading-relaxed"
+              style={{ color: '#4a8fa8', paddingLeft: '3.25rem' }}
+            >
+              {faq.a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
 export default function FAQ() {
   return (
-    <section id="faq" className="bg-white py-24 px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8" style={{ background: '#fff' }}>
       <div className="max-w-2xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-[11px] font-bold uppercase tracking-[2.5px] text-purple-500 mb-3">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p
+            className="text-[11px] font-bold uppercase tracking-[2.5px] mb-3"
+            style={{ color: '#03A6EB' }}
+          >
             Preguntas frecuentes
           </p>
           <h2
-            className="font-black text-gray-950 leading-tight tracking-tight"
-            style={{ fontFamily: 'Outfit, sans-serif', fontSize: 'clamp(1.9rem, 3vw, 2.5rem)' }}
+            className="font-black leading-tight tracking-tight"
+            style={{
+              fontFamily: 'Outfit, sans-serif',
+              fontSize: 'clamp(1.9rem, 3vw, 2.5rem)',
+              color: '#0a2a35',
+            }}
           >
-            Resolvemos tus <span className="text-purple-600">dudas</span>
+            Resolvemos tus <span style={{ color: '#03A6EB' }}>dudas</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Lista */}
-        <div className="flex flex-col gap-3">
+        <motion.div
+          className="flex flex-col gap-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+        >
           {faqs.map(faq => (
             <FAQItem key={faq.q} faq={faq} />
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

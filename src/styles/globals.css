@@ -66,9 +66,10 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--purple-50); }
-::-webkit-scrollbar-thumb { background: var(--purple-300); border-radius: 4px; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0faff; }
+::-webkit-scrollbar-thumb { background: #03A6EB; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #0291cc; }
 
 /* Global utility */
 .container {

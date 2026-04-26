@@ -19,7 +19,6 @@ function PageLoader({ onDone }) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Espera 2s, luego anima la salida
     const timer = setTimeout(() => setFadeOut(true), 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -31,7 +30,7 @@ function PageLoader({ onDone }) {
         position: "fixed",
         inset: 0,
         zIndex: 9999,
-        backgroundColor: "#0a0a0a",
+        background: "linear-gradient(135deg, #023a52 0%, #025f80 40%, #03A6EB 100%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -42,42 +41,49 @@ function PageLoader({ onDone }) {
         pointerEvents: fadeOut ? "none" : "all",
       }}
     >
+      {/* Círculos decorativos de fondo */}
+      <div style={{
+        position: "absolute", top: "-80px", right: "-80px",
+        width: "320px", height: "320px", borderRadius: "50%",
+        background: "rgba(255,255,255,0.05)", pointerEvents: "none",
+      }} />
+      <div style={{
+        position: "absolute", bottom: "-60px", left: "-60px",
+        width: "240px", height: "240px", borderRadius: "50%",
+        background: "rgba(255,255,255,0.04)", pointerEvents: "none",
+      }} />
+
       {/* Logo */}
       <img
         src="/assets/logoprincipal.png"
-        alt="FibraMax"
+        alt="Cable Lima Centro"
         style={{
           height: "320px",
           width: "auto",
           objectFit: "contain",
           animation: "pulse 1.5s ease-in-out infinite",
+          filter: "drop-shadow(0 0 32px rgba(255,255,255,0.15))",
         }}
       />
 
       {/* Barra de carga */}
-      <div
-        style={{
-          width: "180px",
-          height: "3px",
-          background: "rgba(255,255,255,0.1)",
+      <div style={{
+        width: "180px", height: "3px",
+        background: "rgba(255,255,255,0.15)",
+        borderRadius: "999px", overflow: "hidden",
+      }}>
+        <div style={{
+          height: "100%",
+          background: "linear-gradient(90deg, #fff, #b3e8fa)",
           borderRadius: "999px",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            height: "100%",
-            background: "linear-gradient(90deg, #7c3aed, #a78bfa)",
-            borderRadius: "999px",
-            animation: "load 2s ease-out forwards",
-          }}
-        />
+          animation: "load 2s ease-out forwards",
+        }} />
       </div>
 
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
-          50%       { opacity: 0.75; transform: scale(0.97); }
+          50%       { opacity: 0.8; transform: scale(0.97); }
         }
         @keyframes load {
           from { width: 0%; }
