@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import logoSinTexto from '/assets/logosintexto.png';
 
-const WA_NUMBER = '51999999999';
+const WA_NUMBER = '51967410041';
 
 const LINKS = [
   ['#nosotros',  'Nosotros'],

@@ -2,7 +2,7 @@
 import { motion } from 'motion/react';
 import { Zap, Goal } from "lucide-react";
 
-const WA_NUMBER = '51999999999';
+const WA_NUMBER = '51967410041';
 
 const plans = [
   {

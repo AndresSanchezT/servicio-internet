@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import whatsappIcon from "/assets/whatsapp.png";
 
-const WA_NUMBER = '51999999999';
+const WA_NUMBER = '51967410041';
 
 export default function CTABanner() {
   const waLink = `https://wa.me/${WA_NUMBER}?text=Hola%2C%20quiero%20contratar%20un%20plan%20de%20internet`;
