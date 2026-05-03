@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, ArrowUpCircle } from 'lucide-react';
 import logoSinTexto from '/assets/logosintexto.png';
 
-const WA_NUMBER = '51999999999';
+const WA_NUMBER = '51 967410041';
 
 const navItems = [
   ['#nosotros',  'Quiénes somos'],
@@ -27,18 +27,22 @@ const itemVariants = {
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#020f14', borderTop: '1px solid #03A6EB18' }}>
-      <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '3rem 2rem 2rem' }}>
-
+    <footer style={{ background: "#020f14", borderTop: "1px solid #03A6EB18" }}>
+      <div
+        style={{
+          maxWidth: "1160px",
+          margin: "0 auto",
+          padding: "3rem 2rem 2rem",
+        }}
+      >
         {/* ── Fila principal ── */}
         <motion.div
           className="flex flex-col items-center gap-7"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: 'easeOut' }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
         >
-
           {/* Logo */}
           <motion.a
             href="#inicio"
@@ -47,12 +51,19 @@ export default function Footer() {
             transition={{ duration: 0.15 }}
           >
             <img
-  src={logoSinTexto}
-  alt="Cable Lima Centro"
-  style={{ height: 48, width: 'auto', objectFit: 'contain' }}
-/>
-            <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.15rem', color: '#fff' }}>
-              Cable <span style={{ color: '#03A6EB' }}>Lima Centro</span>
+              src={logoSinTexto}
+              alt="Cable Lima Centro"
+              style={{ height: 48, width: "auto", objectFit: "contain" }}
+            />
+            <span
+              style={{
+                fontFamily: "Outfit, sans-serif",
+                fontWeight: 800,
+                fontSize: "1.15rem",
+                color: "#fff",
+              }}
+            >
+              Cable <span style={{ color: "#03A6EB" }}>Lima Centro</span>
             </span>
           </motion.a>
 
@@ -65,9 +76,9 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             {[
-              { Icon: MapPin, text: 'Cercado de Lima, Lima, Perú' },
-              { Icon: Phone,  text: `+${WA_NUMBER}` },
-              { Icon: Mail,   text: 'contacto@cablelima.pe' },
+              { Icon: MapPin, text: "Cercado de Lima, Lima, Perú" },
+              { Icon: Phone, text: `+${WA_NUMBER}` },
+              { Icon: Mail, text: "info@cablelimacentro.com" },
             ].map(({ Icon, text }) => (
               <motion.div
                 key={text}
@@ -75,7 +86,13 @@ export default function Footer() {
                 className="flex items-center gap-1.5"
               >
                 <Icon size={13} color="#03A6EB" strokeWidth={2.2} />
-                <span style={{ color: '#4a8fa8', fontSize: '0.8rem', fontFamily: 'Outfit, sans-serif' }}>
+                <span
+                  style={{
+                    color: "#4a8fa8",
+                    fontSize: "0.8rem",
+                    fontFamily: "Outfit, sans-serif",
+                  }}
+                >
                   {text}
                 </span>
               </motion.div>
@@ -83,7 +100,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Divisor */}
-          <div style={{ width: '100%', height: 1, background: '#03A6EB12' }} />
+          <div style={{ width: "100%", height: 1, background: "#03A6EB12" }} />
 
           {/* Nav links */}
           <motion.ul
@@ -97,16 +114,16 @@ export default function Footer() {
               <motion.li key={href} variants={itemVariants}>
                 <motion.a
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
                   className="no-underline"
                   style={{
-                    color: '#3a6a7a',
-                    fontSize: '0.85rem',
+                    color: "#3a6a7a",
+                    fontSize: "0.85rem",
                     fontWeight: 500,
-                    fontFamily: 'Outfit, sans-serif',
+                    fontFamily: "Outfit, sans-serif",
                   }}
-                  whileHover={{ color: '#03A6EB', y: -1 }}
+                  whileHover={{ color: "#03A6EB", y: -1 }}
                   transition={{ duration: 0.15 }}
                 >
                   {label}
@@ -116,19 +133,32 @@ export default function Footer() {
           </motion.ul>
 
           {/* Divisor */}
-          <div style={{ width: '100%', height: 1, background: '#03A6EB12' }} />
+          <div style={{ width: "100%", height: 1, background: "#03A6EB12" }} />
 
           {/* Copy + volver arriba */}
           <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-3">
-            <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.2)', fontFamily: 'Outfit, sans-serif', margin: 0 }}>
-              © {new Date().getFullYear()} Cable Lima Centro — Cercado de Lima, Lima, Perú. Todos los derechos reservados.
+            <p
+              style={{
+                fontSize: "0.78rem",
+                color: "rgba(255,255,255,0.2)",
+                fontFamily: "Outfit, sans-serif",
+                margin: 0,
+              }}
+            >
+              © {new Date().getFullYear()} Cable Lima Centro — Cercado de Lima,
+              Lima, Perú. Todos los derechos reservados.
             </p>
 
             <motion.a
               href="#inicio"
               className="flex items-center gap-1.5 no-underline"
-              style={{ color: '#03A6EB', fontSize: '0.78rem', fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}
-              whileHover={{ scale: 1.06, color: '#05bfff' }}
+              style={{
+                color: "#03A6EB",
+                fontSize: "0.78rem",
+                fontFamily: "Outfit, sans-serif",
+                fontWeight: 600,
+              }}
+              whileHover={{ scale: 1.06, color: "#05bfff" }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
             >
@@ -136,7 +166,6 @@ export default function Footer() {
               Volver arriba
             </motion.a>
           </div>
-
         </motion.div>
       </div>
     </footer>
