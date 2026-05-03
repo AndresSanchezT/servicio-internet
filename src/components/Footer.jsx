@@ -77,13 +77,21 @@ export default function Footer() {
           >
             {[
               { Icon: MapPin, text: "Cercado de Lima, Lima, Perú" },
-              { Icon: Phone, text: `+${WA_NUMBER}` },
-              { Icon: Mail, text: "info@cablelimacentro.com" },
-            ].map(({ Icon, text }) => (
-              <motion.div
+              { Icon: Phone, text: `+${WA_NUMBER}`, href: `tel:+${WA_NUMBER}` },
+              {
+                Icon: Mail,
+                text: "info@cablelimacentro.com",
+                href: "mailto:info@cablelimacentro.com",
+              },
+            ].map(({ Icon, text, href }) => (
+              <motion.a
                 key={text}
+                href={href}
                 variants={itemVariants}
                 className="flex items-center gap-1.5"
+                style={{ textDecoration: "none" }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.15 }}
               >
                 <Icon size={13} color="#03A6EB" strokeWidth={2.2} />
                 <span
@@ -95,7 +103,7 @@ export default function Footer() {
                 >
                   {text}
                 </span>
-              </motion.div>
+              </motion.a>
             ))}
           </motion.div>
 
